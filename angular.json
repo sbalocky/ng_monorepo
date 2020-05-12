@@ -2,5 +2,248 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "swissubase-front": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "sass"
+        }
+      },
+      "root": "projects/swissubase-front",
+      "sourceRoot": "projects/swissubase-front/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/swissubase-front",
+            "index": "projects/swissubase-front/src/index.html",
+            "main": "projects/swissubase-front/src/main.ts",
+            "polyfills": "projects/swissubase-front/src/polyfills.ts",
+            "tsConfig": "projects/swissubase-front/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/swissubase-front/src/favicon.ico",
+              "projects/swissubase-front/src/assets"
+            ],
+            "styles": [
+              "projects/swissubase-front/src/styles.sass"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/swissubase-front/src/environments/environment.ts",
+                  "with": "projects/swissubase-front/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "swissubase-front:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "swissubase-front:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "swissubase-front:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/swissubase-front/src/test.ts",
+            "polyfills": "projects/swissubase-front/src/polyfills.ts",
+            "tsConfig": "projects/swissubase-front/tsconfig.spec.json",
+            "karmaConfig": "projects/swissubase-front/karma.conf.js",
+            "assets": [
+              "projects/swissubase-front/src/favicon.ico",
+              "projects/swissubase-front/src/assets"
+            ],
+            "styles": [
+              "projects/swissubase-front/src/styles.sass"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/swissubase-front/tsconfig.app.json",
+              "projects/swissubase-front/tsconfig.spec.json",
+              "projects/swissubase-front/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/swissubase-front/e2e/protractor.conf.js",
+            "devServerTarget": "swissubase-front:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "swissubase-front:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "swissubase-UI": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "sass"
+        }
+      },
+      "root": "projects/swissubase-UI",
+      "sourceRoot": "projects/swissubase-UI/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/swissubase-UI",
+            "index": "projects/swissubase-UI/src/index.html",
+            "main": "projects/swissubase-UI/src/main.ts",
+            "polyfills": "projects/swissubase-UI/src/polyfills.ts",
+            "tsConfig": "projects/swissubase-UI/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/swissubase-UI/src/favicon.ico",
+              "projects/swissubase-UI/src/assets"
+            ],
+            "styles": [
+              "projects/swissubase-UI/src/styles.sass"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/swissubase-UI/src/environments/environment.ts",
+                  "with": "projects/swissubase-UI/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "swissubase-UI:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "swissubase-UI:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "swissubase-UI:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/swissubase-UI/src/test.ts",
+            "polyfills": "projects/swissubase-UI/src/polyfills.ts",
+            "tsConfig": "projects/swissubase-UI/tsconfig.spec.json",
+            "karmaConfig": "projects/swissubase-UI/karma.conf.js",
+            "assets": [
+              "projects/swissubase-UI/src/favicon.ico",
+              "projects/swissubase-UI/src/assets"
+            ],
+            "styles": [
+              "projects/swissubase-UI/src/styles.sass"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/swissubase-UI/tsconfig.app.json",
+              "projects/swissubase-UI/tsconfig.spec.json",
+              "projects/swissubase-UI/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/swissubase-UI/e2e/protractor.conf.js",
+            "devServerTarget": "swissubase-UI:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "swissubase-UI:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "swissubase-front"
 }
